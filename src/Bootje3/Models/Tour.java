@@ -3,6 +3,12 @@ package Bootje3.Models;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Tour object
+ * has a start date
+ * has an end date
+ * can return the calculated duration
+ */
 public class Tour {
     private Date start;
     private Date end;
