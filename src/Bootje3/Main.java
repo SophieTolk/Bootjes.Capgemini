@@ -10,6 +10,7 @@ public class Main {
         MenuHandler menuHandler = new MenuHandler();
 
         while (true) {
+            // The menuHandler has an exit option to shutdown the program
             menuHandler.printDefaultMenu();
         }
     }

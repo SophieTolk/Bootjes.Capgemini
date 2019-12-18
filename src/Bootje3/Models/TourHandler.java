@@ -8,8 +8,8 @@ import java.util.List;
  * Holds a list of Tours
  * Can start a tour
  * Can end a tour
- * Can get count of tours
- * Can get average length of tours
+ * Can get count of finished tours
+ * Can get average length of finished tours
  */
 public class TourHandler {
     private static List<Tour> tours;
@@ -29,17 +29,29 @@ public class TourHandler {
     }
 
     public int getTourCount(){
-        return tours.size();
+        return getFinishedTours().size();
     }
 
     public double getAverageDuration(){
         long totalDuration = 0;
+        List<Tour> finishedTours = getFinishedTours();
 
-        for (Tour aTour : tours) {
-            totalDuration += aTour.getDurationInSeconds();
+        for (Tour finishedTour : finishedTours) {
+            totalDuration += finishedTour.getDurationInSeconds();
         }
 
-        return (double) totalDuration / tours.size();
+        return (double) totalDuration / finishedTours.size();
     }
 
+    private List<Tour>getFinishedTours(){
+        List<Tour> finishedTours = new ArrayList<>();
+
+        for(Tour tour: tours){
+            if(tour.isFinished()){
+                finishedTours.add(tour);
+            }
+        }
+
+        return finishedTours;
+    }
 }

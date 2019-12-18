@@ -29,9 +29,14 @@ public class Tour {
         this.end = end;
     }
 
-    public long getDurationInSeconds() {
-        long timeDiffInMs = this.getEnd().getTime() - this.getStart().getTime();
-        return TimeUnit.MILLISECONDS.toSeconds(timeDiffInMs);
+    public boolean isFinished(){
+        return (this.end != null);
     }
 
+    public long getDurationInSeconds() {
+        // Get the time in ms of the end date subtract the time in ms of the start date.
+        long timeDiffInMs = this.getEnd().getTime() - this.getStart().getTime();
+        // return the time difference in seconds converted from ms
+        return TimeUnit.MILLISECONDS.toSeconds(timeDiffInMs);
+    }
 }
